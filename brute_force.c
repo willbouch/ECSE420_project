@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
     char **passwords = parseFile(passwordsFilePath, &nPasswords);
 
     // TO REMOVE
-    nPasswords = 500;
+    nPasswords = 1000;
     // TO REMOVE
     double timeSum = 0.0;
     for (int i = 0; i < nPasswords; i++)
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
         clock_t end = clock();
         double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
         timeSum += timeSpent;
-        printf("It took %fs to find %s", timeSpent, passwords[i]);
+        printf("[%d/%d]: It took %fs to find %s", i, nPasswords, timeSpent, passwords[i]);
         if (!res)
         {
             printf("Failure\n");
