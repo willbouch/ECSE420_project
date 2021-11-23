@@ -118,7 +118,8 @@ int main(int argc, char *argv[])
         clock_t end = clock();
         double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
         timeSum += timeSpent;
-        printf("[%d/%d]: It took %fs to find %s", i, nPasswords, timeSpent, passwords[i]);
+        double currAvg = timeSum / (i + 1);
+        printf("[%d/%d][avg: %f]: It took %fs to find %s", (i + 1), nPasswords, currAvg, timeSpent, passwords[i]);
         if (!res)
         {
             printf("Failure\n");
